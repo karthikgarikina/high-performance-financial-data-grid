@@ -1,11 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+const fs = require('fs')
+const path = require('path')
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const TOTAL_RECORDS = 1_000_000;
+const TOTAL_RECORDS = 1_000_000
 
 const merchants = [
   'TechCorp',
@@ -15,7 +11,7 @@ const merchants = [
   'HealthPlus',
   'FinanceFlow',
   'EduSmart'
-];
+]
 
 const categories = [
   'Technology',
@@ -25,16 +21,16 @@ const categories = [
   'Health',
   'Finance',
   'Education'
-];
+]
 
-const statuses = ['Completed', 'Pending', 'Failed'] as const;
+const statuses = ['Completed', 'Pending', 'Failed']
 
-function randomItem<T>(arr: readonly T[]): T {
-  return arr[Math.floor(Math.random() * arr.length)];
+function randomItem(arr) {
+  return arr[Math.floor(Math.random() * arr.length)]
 }
 
 function generateTransactions() {
-  const transactions = [];
+  const transactions = []
 
   for (let i = 0; i < TOTAL_RECORDS; i++) {
     transactions.push({
@@ -47,16 +43,19 @@ function generateTransactions() {
       amount: parseFloat((Math.random() * 10000).toFixed(2)),
       status: randomItem(statuses),
       description: `Transaction ${i + 1}`
-    });
+    })
   }
 
-  return transactions;
+  return transactions
 }
 
-const data = generateTransactions();
+const data = generateTransactions()
 
-const outputPath = path.resolve(__dirname, '../public/transactions.json');
+const outputPath = path.join(
+  __dirname,
+  '../public/transactions.json'
+)
 
-fs.writeFileSync(outputPath, JSON.stringify(data));
+fs.writeFileSync(outputPath, JSON.stringify(data))
 
-console.log('Generated 1,000,000 transactions successfully.');
+console.log('Generated 1,000,000 transactions successfully.')

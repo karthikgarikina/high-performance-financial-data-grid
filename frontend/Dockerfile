@@ -7,6 +7,7 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+RUN npm run generate-data
 RUN npm run build
 
 # Stage 2 - Serve
