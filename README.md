@@ -28,37 +28,41 @@ It demonstrates:
 -   Docker + Docker Compose
 -   Nginx (production static serving)
 
+
 ------------------------------------------------------------------------
 
 ## 📦 Project Structure
 
-    frontend/
-    │
-    ├── public/
-    │   └── transactions.json (will generate)
-    │
-    ├── scripts/
-    │   └── generate-data.cjs
-    │
-    ├── src/
-    │   └── components/
-    │       └── DataGrid.tsx
-    │
-    ├── Dockerfile
-    ├── docker-compose.yml
-    ├── package.json
+    High-Performance Financial Data/
+    └── frontend/
+        ├── public/
+        │   └── transactions.json (will generate)
+        ├── scripts/
+        │   └── generate-data.cjs
+        ├── src/
+        │   └── components/
+        │       └── DataGrid.tsx
+        ├── Dockerfile
+        ├── docker-compose.yml
+        └── package.json
 
 ------------------------------------------------------------------------
 
-# 🔥 Running The Project (Recommended Way)
+# 🔥 Running The Project (Docker Only)
 
-## Option 1: Docker (Full Production Mode)
+## Step 1 -- Clone repository
 
-### Step 1 -- Navigate to frontend directory
+    git clone https://github.com/karthikgarikina/high-performance-financial-data-grid
+
+## Step 2 -- Navigate to project root
+
+    cd high-performance-financial-data-grid
+
+## Step 3 -- Navigate to frontend
 
     cd frontend
 
-### Step 2 -- Build and run
+## Step 4 -- Build and run
 
     docker compose up --build
 
@@ -73,34 +77,6 @@ This will:
 ### Access Application:
 
     http://localhost:8080
-
-------------------------------------------------------------------------
-
-# 🧪 Running Without Docker (Development Mode)
-
-## Step 1 -- Navigate to frontend
-
-    cd frontend
-
-## Step 2 -- Install dependencies
-
-    npm install
-
-## Step 3 -- Generate dataset
-
-    npm run generate-data
-
-This creates:
-
-    public/transactions.json
-
-## Step 4 -- Start dev server
-
-    npm run dev
-
-Open:
-
-    http://localhost:5173
 
 ------------------------------------------------------------------------
 
@@ -195,6 +171,12 @@ Filters entire dataset instantly.
 ✔ Cell editing\
 ✔ Column pinning\
 ✔ All required data-test-id attributes present
+
+------------------------------------------------------------------------
+
+## 🎥 Video Demo
+
+https://youtu.be/aXg3i-SYG6U
 
 ------------------------------------------------------------------------
 
